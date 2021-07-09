@@ -2,19 +2,20 @@ package users
 
 import (
 	"github.com/nicoletafratila/bookstore_oauth-go/oauth"
+	"github.com/nicoletafratila/bookstore_oauth-go/oauth/errors"
 	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/nicoletafratila/bookstore_users-api/domain/users"
 	"github.com/nicoletafratila/bookstore_users-api/services"
-	"github.com/nicoletafratila/bookstore_users-api/utils/errors"
+	"github.com/nicoletafratila/bookstore_utils-go/rest_errors"
 )
 
-func getUserId(userIdParam string) (int64, *errors.RestErr) {
+func getUserId(userIdParam string) (int64, *rest_errors.RestErr) {
 	userId, userIdErr := strconv.ParseInt(userIdParam, 10, 64)
 	if userIdErr != nil {
-		return 0, errors.NewBadRequestError("user id should be a number")
+		return 0, rest_errors.NewBadRequestError("user id should be a number")
 	}
 	return userId, nil
 }
