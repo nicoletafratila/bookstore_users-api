@@ -47,8 +47,6 @@ github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd/go.mod h1:6dJ
 github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
 github.com/modern-go/reflect2 v1.0.1 h1:9f412s+6RmYXLWZSEzVVgPGK7C2PphHj5RJrvfx9AWI=
 github.com/modern-go/reflect2 v1.0.1/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
-github.com/nicoletafratila/bookstore_oauth-go v0.0.0-20210709091317-ea38ab577379 h1:4iR9FuASw1Yc4i5Ya+VWwHEt1CZgygmWs2LeNwZVOwU=
-github.com/nicoletafratila/bookstore_oauth-go v0.0.0-20210709091317-ea38ab577379/go.mod h1:zKCXQp2w8pOYP9lmeiM74ilxvAoWCDnkof63IW14W3c=
 github.com/nicoletafratila/bookstore_oauth-go v0.0.0-20210709102147-4a7044c8a479 h1:/NAwwtrTKPhPSxvvJJFaGfGo9rwHI9+scOghjMxaDis=
 github.com/nicoletafratila/bookstore_oauth-go v0.0.0-20210709102147-4a7044c8a479/go.mod h1:kRBzfMoieRDfaAy44e1h9Uso+INe7W0XvLQjx9cG048=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
