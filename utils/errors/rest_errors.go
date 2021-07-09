@@ -10,9 +10,13 @@ type RestErr struct {
 	Error   string `json:"error"`
 }
 
-//func NewError(msg string) error {
-//	return errors.New(msg)
-//}
+func NewUnauthorizedError(message string) *RestErr {
+	return &RestErr{
+		Message: message,
+		Status:  http.StatusUnauthorized,
+		Error:   "unauthorized",
+	}
+}
 
 func NewBadRequestError(message string) *RestErr {
 	return &RestErr{

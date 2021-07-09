@@ -1,6 +1,7 @@
 package users
 
 import (
+	"github.com/nicoletafratila/bookstore_oauth-go/oauth"
 	"net/http"
 	"strconv"
 
@@ -31,22 +32,32 @@ func Create(c *gin.Context) {
 		c.JSON(saveErr.Status, saveErr)
 		return
 	}
-	c.JSON(http.StatusCreated, result.Marshall(c.GetHeader("X-Public") == "true"))
+	c.JSON(http.StatusCreated, result.Marshall(oauth.IsPublic(c.Request)))
 }
 
 func Get(c *gin.Context) {
+	if err := oauth.AuthenticateRequest(c.Request); err != nil {
+		c.JSON(err.Status, err)
+		return
+	}
+
 	userId, idErr := getUserId(c.Param("user_id"))
 	if idErr != nil {
 		c.JSON(idErr.Status, idErr)
 		return
 	}
 
-	result, getErr := services.UsersService.Get(userId)
+	user, getErr := services.UsersService.Get(userId)
 	if getErr != nil {
 		c.JSON(getErr.Status, getErr)
 		return
 	}
-	c.JSON(http.StatusOK, result.Marshall(c.GetHeader("X-Public") == "true"))
+
+	if oauth.GetCallerId(c.Request) == user.Id {
+		c.JSON(http.StatusOK, user.Marshall(false))
+		return
+	}
+	c.JSON(http.StatusOK, user.Marshall(oauth.IsPublic(c.Request)))
 }
 
 func Update(c *gin.Context) {
@@ -72,7 +83,7 @@ func Update(c *gin.Context) {
 		c.JSON(updateErr.Status, updateErr)
 		return
 	}
-	c.JSON(http.StatusOK, result.Marshall(c.GetHeader("X-Public") == "true"))
+	c.JSON(http.StatusOK, result.Marshall(oauth.IsPublic(c.Request)))
 }
 
 func Delete(c *gin.Context) {
@@ -99,7 +110,7 @@ func Search(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, result.Marshall(c.GetHeader("X-Public") == "true"))
+	c.JSON(http.StatusOK, result.Marshall(oauth.IsPublic(c.Request)))
 }
 
 func Login(c *gin.Context) {
@@ -114,5 +125,5 @@ func Login(c *gin.Context) {
 		c.JSON(err.Status, err)
 		return
 	}
-	c.JSON(http.StatusOK, user.Marshall(c.GetHeader("X-Public") == "true"))
+	c.JSON(http.StatusOK, user.Marshall(oauth.IsPublic(c.Request)))
 }
