@@ -3,7 +3,6 @@ package users
 import (
 	"errors"
 	"fmt"
-	"github.com/nicoletafratila/bookstore_users-api/utils/mysql_utils"
 	"github.com/nicoletafratila/bookstore_utils-go/rest_errors"
 	"strings"
 
@@ -12,6 +11,8 @@ import (
 )
 
 const (
+	errorNoRows = "no rows in result set"
+
 	queryInsertUser               = "INSERT INTO users(first_name, last_name, email, date_created, status, password) VALUES (?, ?, ?, ?, ?, ?);"
 	queryGetUser                  = "SELECT id, first_name, last_name, email, date_created, status FROM users WHERE id=?;"
 	queryUpdateUser               = "UPDATE users SET first_name=?, last_name=?, email=? WHERE id=?;"
@@ -133,7 +134,7 @@ func (user *User) SearchByEmailAndPassword() *rest_errors.RestErr {
 	result := stmt.QueryRow(user.Email, user.Password, StatusActive)
 
 	if getErr := result.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Email, &user.DateCreated, &user.Status); getErr != nil {
-		if strings.Contains(getErr.Error(), mysql_utils.ErrorNoRows) {
+		if strings.Contains(getErr.Error(), errorNoRows) {
 			return rest_errors.NewNotFoundError("invalid user credentials")
 		}
 		logger.Error("error when trying to get user by user and password", getErr)
