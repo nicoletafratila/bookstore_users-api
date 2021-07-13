@@ -3,11 +3,11 @@ package users
 import (
 	"errors"
 	"fmt"
+	"github.com/nicoletafratila/bookstore_utils-go/logger"
 	"github.com/nicoletafratila/bookstore_utils-go/rest_errors"
 	"strings"
 
 	"github.com/nicoletafratila/bookstore_users-api/databasesources/mysql/users_db"
-	"github.com/nicoletafratila/bookstore_users-api/logger"
 )
 
 const (
