@@ -21,7 +21,7 @@ const (
 	querySearchByEmailAndPassword = "SELECT id, first_name, last_name, email, date_created, status FROM users WHERE email=? AND password=? AND status=?;"
 )
 
-func (user *User) Get() *rest_errors.RestErr {
+func (user *User) Get() rest_errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryGetUser)
 	if err != nil {
 		logger.Error("error when trying to prepare user statement", err)
@@ -38,7 +38,7 @@ func (user *User) Get() *rest_errors.RestErr {
 	return nil
 }
 
-func (user *User) Create() *rest_errors.RestErr {
+func (user *User) Create() rest_errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryInsertUser)
 	if err != nil {
 		logger.Error("error when trying to prepare save user statement", err)
@@ -61,7 +61,7 @@ func (user *User) Create() *rest_errors.RestErr {
 	return nil
 }
 
-func (user *User) Update() *rest_errors.RestErr {
+func (user *User) Update() rest_errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryUpdateUser)
 	if err != nil {
 		logger.Error("error when trying to prepare update user statement", err)
@@ -77,7 +77,7 @@ func (user *User) Update() *rest_errors.RestErr {
 	return nil
 }
 
-func (user *User) Delete() *rest_errors.RestErr {
+func (user *User) Delete() rest_errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryDeleteUser)
 	if err != nil {
 		logger.Error("error when trying to prepare delete user statement", err)
@@ -92,7 +92,7 @@ func (user *User) Delete() *rest_errors.RestErr {
 	return nil
 }
 
-func (user *User) SearchByStatus(status string) ([]User, *rest_errors.RestErr) {
+func (user *User) SearchByStatus(status string) ([]User, rest_errors.RestErr) {
 	stmt, err := users_db.Client.Prepare(querySearchByStatus)
 	if err != nil {
 		logger.Error("error when trying to prepare search user by status statement", err)
@@ -123,7 +123,7 @@ func (user *User) SearchByStatus(status string) ([]User, *rest_errors.RestErr) {
 	return results, nil
 }
 
-func (user *User) SearchByEmailAndPassword() *rest_errors.RestErr {
+func (user *User) SearchByEmailAndPassword() rest_errors.RestErr {
 	stmt, err := users_db.Client.Prepare(querySearchByEmailAndPassword)
 	if err != nil {
 		logger.Error("error when trying to prepare user by email and password statement", err)

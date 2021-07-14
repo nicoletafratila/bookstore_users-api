@@ -51,6 +51,8 @@ github.com/nicoletafratila/bookstore_oauth-go v0.0.0-20210709102147-4a7044c8a479
 github.com/nicoletafratila/bookstore_oauth-go v0.0.0-20210709102147-4a7044c8a479/go.mod h1:kRBzfMoieRDfaAy44e1h9Uso+INe7W0XvLQjx9cG048=
 github.com/nicoletafratila/bookstore_utils-go v0.0.0-20210713124042-1e5865cc07f5 h1:gBCOOsfJ9f3GeD+mel1jyBZCvonhL/ftSa39psRjiEI=
 github.com/nicoletafratila/bookstore_utils-go v0.0.0-20210713124042-1e5865cc07f5/go.mod h1:krG1qTnwP2heHoAy1QJQYNgwxvEJitIZaIPAn86/yD4=
+github.com/nicoletafratila/bookstore_utils-go v0.0.0-20210714082457-1012110956da h1:Enj1LzU9oqc24qk8IEqW6g/AMAW2sJa9vLoM7eqQMrI=
+github.com/nicoletafratila/bookstore_utils-go v0.0.0-20210714082457-1012110956da/go.mod h1:qg/wLQTMTWss6MCkEriuhE31SlHrn+vHEmqEbbqMpfo=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=

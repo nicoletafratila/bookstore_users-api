@@ -14,7 +14,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/nicoletafratila/bookstore_oauth-go v0.0.0-20210709102147-4a7044c8a479
-	github.com/nicoletafratila/bookstore_utils-go v0.0.0-20210713124042-1e5865cc07f5
+	github.com/nicoletafratila/bookstore_utils-go v0.0.0-20210714082457-1012110956da
 	github.com/ugorji/go v1.2.6 // indirect
 	go.uber.org/zap v1.18.1 // indirect
 	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e // indirect
